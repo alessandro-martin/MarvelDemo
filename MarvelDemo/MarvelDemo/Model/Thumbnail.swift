@@ -6,20 +6,16 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
-struct Thumbnail : Codable {
-	let path : String?
-	let `extension` : String?
+import Foundation
 
-	enum CodingKeys: String, CodingKey {
-
-		case path = "path"
-		case `extension` = "extension"
-	}
-
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		path = try values.decodeIfPresent(String.self, forKey: .path)
-		`extension` = try values.decodeIfPresent(String.self, forKey: .extension)
-	}
-
+struct Thumbnail: Decodable {
+	let path: String?
+	let `extension`: String?
+    
+    var url: URL? {
+        guard let path = path,
+            let `extension` = `extension` else { return nil }
+        
+        return URL(string: "\(path).\(`extension`)")
+    }
 }

@@ -1,12 +1,12 @@
 //
-//  Results.swift
+//  MarvelCharacter.swift
 //  MarvelDemo
 //
 //  Created by Alessandro Martin on 21/04/2020.
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
-struct Results : Codable {
+struct MarvelCharacter : Codable {
 	let id : Int?
 	let name : String?
 	let description : String?
