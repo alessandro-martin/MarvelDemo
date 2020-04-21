@@ -6,6 +6,6 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
-struct Item: Decodable {
+struct Item: Decodable, Equatable {
     let available: Int?
 }

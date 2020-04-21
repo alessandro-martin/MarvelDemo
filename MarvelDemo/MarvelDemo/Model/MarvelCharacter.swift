@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
-struct MarvelCharacter: Decodable {
+struct MarvelCharacter: Decodable, Equatable {
 	let id: Int?
 	let name: String?
 	let description: String?
