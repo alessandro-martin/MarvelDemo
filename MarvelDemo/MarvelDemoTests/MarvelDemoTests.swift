@@ -11,14 +11,6 @@ import XCTest
 
 final class MarvelDemoTests: XCTestCase {
 
-//    override func setUpWithError() throws {
-//        // Put setup code here. This method is called before the invocation of each test method in the class.
-//    }
-//
-//    override func tearDownWithError() throws {
-//        // Put teardown code here. This method is called after the invocation of each test method in the class.
-//    }
-
     func testResponseIsWellFormed() {
         let sut = Utilities.responseFromJSON
         
@@ -28,5 +20,18 @@ final class MarvelDemoTests: XCTestCase {
         XCTAssertEqual(sut.data?.offset, 0)
         XCTAssertEqual(sut.data?.results?.count, 20)
         XCTAssertEqual(sut.data?.total, 1493)
+    }
+    
+    func testMarvelCharacterFromCollectionResponseIsWellFormed() {
+        let sut = Utilities.responseFromJSON.data!.results![0]
+        
+        XCTAssertEqual(sut.id, 1011334)
+        XCTAssertEqual(sut.name, "3-D Man")
+        XCTAssertEqual(sut.description, "")
+        XCTAssertEqual(sut.comics?.available, 12)
+        XCTAssertEqual(sut.events?.available, 1)
+        XCTAssertEqual(sut.series?.available, 3)
+        XCTAssertEqual(sut.stories?.available, 21)
+        XCTAssertEqual(sut.thumbnail?.url?.absoluteString, "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg")
     }
 }
