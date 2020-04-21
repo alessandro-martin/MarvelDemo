@@ -79,9 +79,8 @@
 		BF66339D244F1E8000F4D3E3 /* MarvelDemo */ = {
 			isa = PBXGroup;
 			children = (
-				BF66339E244F1E8000F4D3E3 /* AppDelegate.swift */,
-				BF6633A0244F1E8000F4D3E3 /* SceneDelegate.swift */,
-				BF6633A2244F1E8000F4D3E3 /* ViewController.swift */,
+				BF6633C0244F200100F4D3E3 /* System */,
+				BF6633C1244F200C00F4D3E3 /* View */,
 				BF6633A4244F1E8000F4D3E3 /* Main.storyboard */,
 				BF6633A7244F1E8200F4D3E3 /* Assets.xcassets */,
 				BF6633A9244F1E8200F4D3E3 /* LaunchScreen.storyboard */,
@@ -97,6 +96,23 @@
 				BF6633B7244F1E8200F4D3E3 /* Info.plist */,
 			);
 			path = MarvelDemoTests;
+			sourceTree = "<group>";
+		};
+		BF6633C0244F200100F4D3E3 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				BF66339E244F1E8000F4D3E3 /* AppDelegate.swift */,
+				BF6633A0244F1E8000F4D3E3 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		BF6633C1244F200C00F4D3E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF6633A2244F1E8000F4D3E3 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
