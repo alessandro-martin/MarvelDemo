@@ -23,6 +23,7 @@
 		BF6633D4244F212B00F4D3E3 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633CA244F212B00F4D3E3 /* Comics.swift */; };
 		BF6633D5244F212B00F4D3E3 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633CB244F212B00F4D3E3 /* Series.swift */; };
 		BF6633D6244F212B00F4D3E3 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633CC244F212B00F4D3E3 /* Urls.swift */; };
+		BF6633D9244F222200F4D3E3 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6633D8244F222200F4D3E3 /* response.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		BF6633CA244F212B00F4D3E3 /* Comics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comics.swift; sourceTree = "<group>"; };
 		BF6633CB244F212B00F4D3E3 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		BF6633CC244F212B00F4D3E3 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		BF6633D8244F222200F4D3E3 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		BF6633B4244F1E8200F4D3E3 /* MarvelDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF6633D7244F220F00F4D3E3 /* Fixtures */,
 				BF6633B5244F1E8200F4D3E3 /* MarvelDemoTests.swift */,
 				BF6633B7244F1E8200F4D3E3 /* Info.plist */,
 			);
@@ -148,6 +151,14 @@
 				BF6633CC244F212B00F4D3E3 /* Urls.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BF6633D7244F220F00F4D3E3 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				BF6633D8244F222200F4D3E3 /* response.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6633D9244F222200F4D3E3 /* response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
