@@ -23,6 +23,8 @@
 		BF6633E1244F575900F4D3E3 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633E0244F575900F4D3E3 /* CharacterListViewModel.swift */; };
 		BF6633E4244F617300F4D3E3 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633E3244F617300F4D3E3 /* Provider.swift */; };
 		BF6633E6244F690D00F4D3E3 /* MarvelCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633E5244F690D00F4D3E3 /* MarvelCharacterCell.swift */; };
+		BFB721D224507A1500758333 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D124507A1500758333 /* NSLayoutConstraint.swift */; };
+		BFB721D424507A3A00758333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D324507A3A00758333 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		BF6633E0244F575900F4D3E3 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		BF6633E3244F617300F4D3E3 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		BF6633E5244F690D00F4D3E3 /* MarvelCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterCell.swift; sourceTree = "<group>"; };
+		BFB721D124507A1500758333 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		BFB721D324507A3A00758333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 		BF6633E2244F616A00F4D3E3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BFB721D324507A3A00758333 /* Constants.swift */,
+				BFB721D124507A1500758333 /* NSLayoutConstraint.swift */,
 				BF6633E3244F617300F4D3E3 /* Provider.swift */,
 			);
 			path = Common;
@@ -290,6 +296,8 @@
 				BF6633E1244F575900F4D3E3 /* CharacterListViewModel.swift in Sources */,
 				BF66339F244F1E8000F4D3E3 /* AppDelegate.swift in Sources */,
 				BF6633E6244F690D00F4D3E3 /* MarvelCharacterCell.swift in Sources */,
+				BFB721D424507A3A00758333 /* Constants.swift in Sources */,
+				BFB721D224507A1500758333 /* NSLayoutConstraint.swift in Sources */,
 				BF6633A1244F1E8000F4D3E3 /* SceneDelegate.swift in Sources */,
 				BF6633D1244F212B00F4D3E3 /* Thumbnail.swift in Sources */,
 				BF6633E4244F617300F4D3E3 /* Provider.swift in Sources */,

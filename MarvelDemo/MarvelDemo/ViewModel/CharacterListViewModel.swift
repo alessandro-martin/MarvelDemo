@@ -9,10 +9,6 @@
 import Combine
 import Foundation
 
-enum Constants {
-    static let pageSize = 20
-}
-
 typealias CharacterProvider = (Int) -> AnyPublisher<Response, Never>
 
 final class CharacterListViewModel {

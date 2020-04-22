@@ -32,7 +32,7 @@ enum Provider {
         components.path = "/v1/public/characters"
         components.queryItems = [
             .init(name: "offset", value: "\(offset)"),
-            .init(name: "apikey", value: "377559716b35b6d2d5b6c078b7219b37"),
+            .init(name: "apikey", value: Constants.publicKey),
             .init(name: "hash", value: md5(timeStamp: timestamp)),
             .init(name: "ts", value: timestamp)
         ]
@@ -42,9 +42,6 @@ enum Provider {
 }
 
 func md5(timeStamp: String) -> String {
-    let digest = Insecure.MD5.hash(data: Data((timeStamp + "f324b49a0621abb813a9001ceb77f470ad9372a7" + "377559716b35b6d2d5b6c078b7219b37").utf8))
-    
-    return digest.map {
-        String(format: "%02hhx", $0)
-    }.joined()
+    Insecure.MD5.hash(data: Data((timeStamp + Constants.privateKey + Constants.publicKey).utf8))
+        .reduce(into: "") { $0 += String(format: "%02hhx", $1) }
 }
