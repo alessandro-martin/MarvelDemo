@@ -20,11 +20,12 @@ enum Provider {
             .eraseToAnyPublisher()
     }
     
-    static func characterDetails(characterId: Int) -> AnyPublisher<Response, Never> {
+    static func characterDetails(characterId: Int) -> AnyPublisher<MarvelCharacter?, Never> {
         URLSession.shared.dataTaskPublisher(for: Provider.characterDetailsUrl(characterId: characterId))
             .map(\.data)
             .decode(type: Response.self, decoder: JSONDecoder())
             .replaceError(with: Response(code: nil, data: nil))
+            .map(\.data?.results?.first)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
