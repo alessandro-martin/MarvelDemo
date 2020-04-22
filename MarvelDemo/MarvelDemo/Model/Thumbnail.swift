@@ -16,6 +16,9 @@ struct Thumbnail: Decodable, Equatable {
         guard let path = path,
             let `extension` = `extension` else { return nil }
         
-        return URL(string: "\(path).\(`extension`)")
+        var components = URLComponents(string: "\(path).\(`extension`)")
+        components?.scheme = "https"
+        
+        return components?.url
     }
 }

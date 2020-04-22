@@ -28,9 +28,10 @@ final class CharacterListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100.0
+        tableView.estimatedRowHeight = 136.0
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(MarvelCharacterCell.self, forCellReuseIdentifier: MarvelCharacterCell.reuseIdentifier)
         view.addSubview(tableView)
         NSLayoutConstraint.pin(tableView, to: view)
@@ -60,6 +61,8 @@ extension CharacterListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MarvelCharacterCell.reuseIdentifier, for: indexPath) as? MarvelCharacterCell else { fatalError("Unknown Cell Type") }
+        
+        cell.reset()
         
         let index = indexPath.row
         let marvelCharacter = viewModel.marvelCharacter(at: index)
