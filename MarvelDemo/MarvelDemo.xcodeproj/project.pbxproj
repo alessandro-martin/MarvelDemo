@@ -26,6 +26,7 @@
 		BFB721D224507A1500758333 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D124507A1500758333 /* NSLayoutConstraint.swift */; };
 		BFB721D424507A3A00758333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D324507A3A00758333 /* Constants.swift */; };
 		BFB721D724507C1F00758333 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = BFB721D624507C1F00758333 /* Nuke */; };
+		BFB721D92450893700758333 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D82450893700758333 /* CharacterDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		BF6633E5244F690D00F4D3E3 /* MarvelCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterCell.swift; sourceTree = "<group>"; };
 		BFB721D124507A1500758333 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		BFB721D324507A3A00758333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFB721D82450893700758333 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		BF6633C1244F200C00F4D3E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFB721D82450893700758333 /* CharacterDetailViewController.swift */,
 				BF6633A2244F1E8000F4D3E3 /* CharacterListViewController.swift */,
 				BF6633E5244F690D00F4D3E3 /* MarvelCharacterCell.swift */,
 			);
@@ -308,6 +311,7 @@
 				BFB721D224507A1500758333 /* NSLayoutConstraint.swift in Sources */,
 				BF6633A1244F1E8000F4D3E3 /* SceneDelegate.swift in Sources */,
 				BF6633D1244F212B00F4D3E3 /* Thumbnail.swift in Sources */,
+				BFB721D92450893700758333 /* CharacterDetailViewController.swift in Sources */,
 				BF6633E4244F617300F4D3E3 /* Provider.swift in Sources */,
 				BF6633CE244F212B00F4D3E3 /* MarvelCharacter.swift in Sources */,
 			);

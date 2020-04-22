@@ -77,5 +77,11 @@ extension CharacterListViewController: UITableViewDataSource {
 extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let characterId = viewModel.marvelCharacter(at: indexPath.row).id else { return }
+        
+        let detailVM = CharacterViewModel(characterId: characterId, provider: Provider.characterDetails)
+        let detailVC = CharacterDetailViewController(viewModel: detailVM)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

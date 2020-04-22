@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-typealias CharacterProvider = (Int) -> AnyPublisher<Response, Never>
+typealias CharactersProvider = (Int) -> AnyPublisher<Response, Never>
 
 final class CharacterListViewModel {
     struct State: Equatable {
@@ -35,7 +35,7 @@ final class CharacterListViewModel {
     @Published private(set) var state = State()
     
     
-    private let provider: CharacterProvider
+    private let provider: CharactersProvider
     
     private var targetOffset = 0
     private var totalCharactersCount: Int?
@@ -43,7 +43,7 @@ final class CharacterListViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(provider: @escaping CharacterProvider) {
+    init(provider: @escaping CharactersProvider) {
         self.provider = provider
     }
     
