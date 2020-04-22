@@ -10,8 +10,6 @@ import Combine
 import CryptoKit
 import Foundation
 
-//https://gateway.marvel.com:443/v1/public/characters?offset=20&apikey=377559716b35b6d2d5b6c078b7219b37
-//https://gateway.marvel.com:443/v1/public/characters?offset=00&apikey=377559716b35b6d2d5b6c078b7219b37
 enum Provider {
     static func marvelCharactersList(offset: Int) -> AnyPublisher<Response, Never> {
         URLSession.shared.dataTaskPublisher(for: Provider.url(offset: offset))
@@ -33,15 +31,15 @@ enum Provider {
         components.queryItems = [
             .init(name: "offset", value: "\(offset)"),
             .init(name: "apikey", value: Constants.publicKey),
-            .init(name: "hash", value: md5(timeStamp: timestamp)),
+            .init(name: "hash", value: Provider.hash(timeStamp: timestamp)),
             .init(name: "ts", value: timestamp)
         ]
         
         return components.url!
     }
-}
-
-func md5(timeStamp: String) -> String {
-    Insecure.MD5.hash(data: Data((timeStamp + Constants.privateKey + Constants.publicKey).utf8))
-        .reduce(into: "") { $0 += String(format: "%02hhx", $1) }
+    
+    private static func hash(timeStamp: String) -> String {
+        Insecure.MD5.hash(data: Data((timeStamp + Constants.privateKey + Constants.publicKey).utf8))
+            .reduce(into: "") { $0 += String(format: "%02hhx", $1) }
+    }
 }
