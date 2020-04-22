@@ -6,14 +6,17 @@
 //  Copyright © 2020 Alessandro Martin. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 final class CharacterDetailViewController: UIViewController {
     private let viewModel: CharacterViewModel
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init(viewModel: CharacterViewModel) {
         self.viewModel = viewModel
-        
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,36 +25,26 @@ final class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = viewModel.state.title
         view.backgroundColor = .systemBackground
         
-        viewModel.fetchCharacterInfo()
-    }
-}
-
-import Combine
-
-final class CharacterViewModel {
-    private(set) var marvelCharacter: MarvelCharacter?
-    
-    private let characterId: Int
-    private let provider: CharactersProvider
-    
-    private var cancellables = Set<AnyCancellable>()
-    
-    init(characterId: Int, provider: @escaping CharactersProvider) {
-        self.characterId = characterId
-        self.provider = provider
-        print("---> Character Id: \(characterId)")
-    }
-    
-    func fetchCharacterInfo() {
-        provider(characterId)
-            .sink { [weak self] response in
-                guard let self = self else { return }
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] state in
+                self.title = state.title
                 
-                print("--->", response.data?.results?.first as Any)
-                self.marvelCharacter = response.data?.results?.first
-                
+                switch state.status {
+                case .initial, .loading:
+                    break
+                case .withData:
+                    break // UPDATE UI
+                }
         }.store(in: &cancellables)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.fetchCharacterInfo()
     }
 }
