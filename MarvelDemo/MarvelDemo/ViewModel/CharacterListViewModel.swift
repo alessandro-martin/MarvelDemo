@@ -40,9 +40,10 @@ final class CharacterListViewModel {
     
     
     private let provider: CharacterProvider
-    private var hasNextPage = false
     
-    private var currentPage: Int { (state.marvelCharacters.count / Constants.pageSize) }
+    private var targetOffset = 0
+    private var totalCharactersCount: Int?
+    private var canFetchNextPage: Bool { totalCharactersCount.map { targetOffset < $0 } == true }
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -58,25 +59,27 @@ final class CharacterListViewModel {
     }
     
     func fetchFirstPage() {
-        fetchMarvelCharacters(offset: 0)
+        fetchMarvelCharacters()
     }
     
     func fetchNextPageIfNeeded(for index: Int) {
-        guard hasNextPage
+        guard canFetchNextPage
             && state.status != .loading
             && index > max(0, marvelCharactersCount - 5) else { return }
         
-        fetchMarvelCharacters(offset: currentPage + 1)
+        fetchMarvelCharacters()
     }
     
     // MARK: Private Methods
-    private func fetchMarvelCharacters(offset: Int) {
+    private func fetchMarvelCharacters() {
         state.status = .loading
-        provider(offset)
+        provider(targetOffset)
             .sink { [weak self] response in
                 guard let self = self else { return }
                 
-                self.hasNextPage = (response.data?.total ?? 0) > (self.marvelCharactersCount + (response.data?.count ?? 0))
+                self.targetOffset += Constants.pageSize
+                self.totalCharactersCount = response.data?.total
+
                 self.state = State(
                     marvelCharacters: self.state.marvelCharacters + (response.data?.results ?? []),
                     status: .withData

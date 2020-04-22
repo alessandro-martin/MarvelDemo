@@ -18,6 +18,7 @@ enum Provider {
             .map(\.data)
             .decode(type: Response.self, decoder: JSONDecoder())
             .replaceError(with: Response(code: nil, data: nil))
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     

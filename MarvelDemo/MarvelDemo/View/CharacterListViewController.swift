@@ -39,7 +39,7 @@ final class CharacterListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] state in
                 self.title = state.status.title
-                print("--->", state)
+                print("--->", state.status)
                 switch state.status {
                 case .initial:
                     self.viewModel.fetchFirstPage()
