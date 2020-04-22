@@ -45,7 +45,12 @@ final class CharacterViewModel {
     }
     
     var description: String {
-        state.marvelCharacter?.description ?? "No Description Available"
+        if let description = state.marvelCharacter?.description,
+            !description.isEmpty {
+            return description
+        } else {
+            return "No Description Available"
+        }
     }
     
     var imageURL: URL? {
