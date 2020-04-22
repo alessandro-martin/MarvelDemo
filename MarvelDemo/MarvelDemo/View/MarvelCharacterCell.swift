@@ -9,6 +9,20 @@
 import Nuke
 import UIKit
 
+enum UI {
+    static let imageHeight: CGFloat = 120.0
+    static let imageSize = CGSize(width: UI.imageHeight, height: UI.imageHeight)
+    static let margin: CGFloat = 8.0
+    static let estimatedCellHeight = UI.imageHeight + (2 * UI.margin)
+    static let insets = NSDirectionalEdgeInsets(
+        top: UI.margin,
+        leading: UI.margin,
+        bottom: UI.margin,
+        trailing: UI.margin
+    )
+    static let horizontalSpacing: CGFloat = 16.0
+}
+
 final class MarvelCharacterCell: UITableViewCell {
     static let reuseIdentifier = String(describing: self)
     
@@ -25,13 +39,13 @@ final class MarvelCharacterCell: UITableViewCell {
     
     private func setUp() {
         let stackView = UIStackView()
-        stackView.spacing = 16.0
+        stackView.spacing = UI.horizontalSpacing
         stackView.alignment = .center
         contentView.addSubview(stackView)
-        NSLayoutConstraint.pin(stackView, to: contentView, insets: NSDirectionalEdgeInsets(top: 8.0, leading: 8.0, bottom: 8.0, trailing: 8.0))
+        NSLayoutConstraint.pin(stackView, to: contentView, insets: UI.insets)
         
         stackView.addArrangedSubview(characterImageView)
-        NSLayoutConstraint.setSize(of: characterImageView, to: CGSize(width: 120.0, height: 120.0))
+        NSLayoutConstraint.setSize(of: characterImageView, to: UI.imageSize)
         
         nameLabel.numberOfLines = 0
         nameLabel.font = .preferredFont(forTextStyle: .body)

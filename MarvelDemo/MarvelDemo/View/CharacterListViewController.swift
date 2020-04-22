@@ -28,9 +28,10 @@ final class CharacterListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 136.0
+        tableView.estimatedRowHeight = UI.estimatedCellHeight
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(MarvelCharacterCell.self, forCellReuseIdentifier: MarvelCharacterCell.reuseIdentifier)
         view.addSubview(tableView)
@@ -67,9 +68,14 @@ extension CharacterListViewController: UITableViewDataSource {
         let index = indexPath.row
         let marvelCharacter = viewModel.marvelCharacter(at: index)
         cell.configure(marvelCharacter: marvelCharacter)
-        
         viewModel.fetchNextPageIfNeeded(for: index)
         
         return cell
+    }
+}
+
+extension CharacterListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
