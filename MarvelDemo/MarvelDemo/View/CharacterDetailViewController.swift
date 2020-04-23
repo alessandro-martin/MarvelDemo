@@ -81,6 +81,7 @@ final class CharacterDetailViewController: UIViewController {
         ])
         
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .preferredFont(forTextStyle: .body)
         stackView.addArrangedSubview(descriptionLabel)
         
         stackView.addArrangedSubview(characterImageView)
@@ -90,15 +91,19 @@ final class CharacterDetailViewController: UIViewController {
         ])
         
         comicsLabel.numberOfLines = 0
+        comicsLabel.font = .preferredFont(forTextStyle: .body)
         stackView.addArrangedSubview(comicsLabel)
         
         eventsLabel.numberOfLines = 0
+        eventsLabel.font = .preferredFont(forTextStyle: .body)
         stackView.addArrangedSubview(eventsLabel)
         
         seriesLabel.numberOfLines = 0
+        seriesLabel.font = .preferredFont(forTextStyle: .body)
         stackView.addArrangedSubview(seriesLabel)
         
         storiesLabel.numberOfLines = 0
+        storiesLabel.font = .preferredFont(forTextStyle: .body)
         stackView.addArrangedSubview(storiesLabel)
     }
     
