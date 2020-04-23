@@ -14,12 +14,15 @@ typealias CharactersProvider = (Int) -> AnyPublisher<CharacterDataContainer, App
 final class CharacterListViewModel {
     struct State: Equatable {
         enum Status: Equatable {
+            case error(String)
             case initial
             case loading
             case withData
             
             var title: String {
                 switch self {
+                case let .error(message):
+                    return message
                 case .initial, .withData:
                     return "Marvel Characters"
                 case .loading:
@@ -70,8 +73,15 @@ final class CharacterListViewModel {
     private func fetchMarvelCharacters() {
         state.status = .loading
         provider(targetOffset)
-            .sink(receiveCompletion: { completion in
-                print("---> ", completion)
+            .sink(receiveCompletion: {  [weak self] completion in
+                guard let self = self else { return }
+                
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.state.status = .error(error.message)
+                }
             }) { [weak self] characterData in
                 guard let self = self else { return }
                 

@@ -47,7 +47,7 @@ final class CharacterDetailViewController: UIViewController {
                 self.title = state.title
                 
                 switch state.status {
-                case .initial, .loading:
+                case .error, .initial, .loading:
                     break
                 case .withData:
                     self.updateUI()

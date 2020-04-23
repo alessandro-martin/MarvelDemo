@@ -45,7 +45,7 @@ final class CharacterListViewController: UIViewController {
                 switch state.status {
                 case .initial:
                     self.viewModel.fetchFirstPage()
-                case .loading:
+                case .loading, .error:
                     break
                 case .withData:
                     self.tableView.reloadData()

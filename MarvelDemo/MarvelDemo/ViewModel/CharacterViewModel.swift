@@ -14,6 +14,7 @@ typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter, AppE
 final class CharacterViewModel {
     struct State: Equatable {
         enum Status: Equatable {
+            case error(String)
             case initial
             case loading
             case withData
@@ -24,6 +25,8 @@ final class CharacterViewModel {
         
         var title: String {
             switch status {
+            case let .error(message):
+                return message
             case .withData:
                 return marvelCharacter?.name ?? "Unknown Name"
             case .initial, .loading:
@@ -96,8 +99,15 @@ final class CharacterViewModel {
     func fetchCharacterInfo() {
         state.status = .loading
         provider(characterId)
-            .sink(receiveCompletion: { completion in
-                print("--->", completion)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.state.status = .error(error.message)
+                }
             }) { [weak self] character in
                 guard let self = self else { return }
                 
