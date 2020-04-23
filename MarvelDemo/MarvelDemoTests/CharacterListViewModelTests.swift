@@ -43,4 +43,14 @@ final class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(sut.marvelCharactersCount, 20)
         XCTAssertEqual(sut.state.status, .withData)
     }
+    
+    func testFetchErrorYieldsCorrectState() {
+        let sut = CharacterListViewModel { _ in
+            Result.failure(.networkError).publisher.eraseToAnyPublisher()
+        }
+        
+        sut.fetchFirstPage()
+        
+        XCTAssertEqual(sut.state.status, .error("Network Error"))
+    }
 }
