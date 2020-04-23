@@ -11,7 +11,12 @@ import Nuke
 import UIKit
 
 final class CharacterDetailViewController: UIViewController {
-    private let viewModel: CharacterViewModel
+    private enum UI {
+        static let margins = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+        static let spacing: CGFloat = 16.0
+    }
+    
+    private let viewModel: CharacterDetailViewModel
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -25,7 +30,7 @@ final class CharacterDetailViewController: UIViewController {
     private let seriesLabel = UILabel()
     private let storiesLabel = UILabel()
     
-    init(viewModel: CharacterViewModel) {
+    init(viewModel: CharacterDetailViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -65,10 +70,10 @@ final class CharacterDetailViewController: UIViewController {
         view.addSubview(scrollView)
         NSLayoutConstraint.pin(scrollView, to: view)
         
-        stackView.layoutMargins = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+        stackView.layoutMargins = UI.margins
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.axis = .vertical
-        stackView.spacing = 16.0
+        stackView.spacing = UI.spacing
         scrollView.addSubview(stackView)
         NSLayoutConstraint.pin(stackView, to: scrollView)
         NSLayoutConstraint.activate([

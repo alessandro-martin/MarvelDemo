@@ -28,7 +28,7 @@ final class CharacterListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UI.estimatedCellHeight
+        tableView.estimatedRowHeight = MarvelCharacterCell.UI.estimatedCellHeight
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.dataSource = self
         tableView.delegate = self
@@ -80,7 +80,7 @@ extension CharacterListViewController: UITableViewDelegate {
         
         guard let characterId = viewModel.marvelCharacter(at: indexPath.row).id else { return }
         
-        let detailVM = CharacterViewModel(characterId: characterId, provider: Provider.characterDetails)
+        let detailVM = CharacterDetailViewModel(characterId: characterId)
         let detailVC = CharacterDetailViewController(viewModel: detailVM)
         navigationController?.pushViewController(detailVC, animated: true)
     }

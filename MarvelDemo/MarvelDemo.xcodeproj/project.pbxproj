@@ -27,7 +27,7 @@
 		BFB721D424507A3A00758333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D324507A3A00758333 /* Constants.swift */; };
 		BFB721D724507C1F00758333 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = BFB721D624507C1F00758333 /* Nuke */; };
 		BFB721D92450893700758333 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D82450893700758333 /* CharacterDetailViewController.swift */; };
-		BFB721DB2450931300758333 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721DA2450931300758333 /* CharacterViewModel.swift */; };
+		BFB721DB2450931300758333 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 		BFB721D124507A1500758333 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		BFB721D324507A3A00758333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFB721D82450893700758333 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
-		BFB721DA2450931300758333 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +180,8 @@
 		BF6633DF244F574000F4D3E3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */,
 				BF6633E0244F575900F4D3E3 /* CharacterListViewModel.swift */,
-				BFB721DA2450931300758333 /* CharacterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6633CD244F212B00F4D3E3 /* Response.swift in Sources */,
-				BFB721DB2450931300758333 /* CharacterViewModel.swift in Sources */,
+				BFB721DB2450931300758333 /* CharacterDetailViewModel.swift in Sources */,
 				BF6633DB244F292A00F4D3E3 /* Item.swift in Sources */,
 				BF6633D3244F212B00F4D3E3 /* CharacterDataContainer.swift in Sources */,
 				BF6633A3244F1E8000F4D3E3 /* CharacterListViewController.swift in Sources */,

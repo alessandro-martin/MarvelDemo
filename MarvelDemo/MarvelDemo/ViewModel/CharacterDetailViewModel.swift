@@ -1,5 +1,5 @@
 //
-//  CharacterViewModel.swift
+//  CharacterDetailViewModel.swift
 //  MarvelDemo
 //
 //  Created by Alessandro Martin on 22/04/2020.
@@ -11,7 +11,7 @@ import Foundation
 
 typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter, AppError>
 
-final class CharacterViewModel {
+final class CharacterDetailViewModel {
     struct State: Equatable {
         enum Status: Equatable {
             case error(String)
@@ -42,7 +42,7 @@ final class CharacterViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(characterId: Int, provider: @escaping CharacterDetailsProvider) {
+    init(characterId: Int, provider: @escaping CharacterDetailsProvider = Provider.characterDetails) {
         self.characterId = characterId
         self.provider = provider
     }

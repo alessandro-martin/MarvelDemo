@@ -46,7 +46,7 @@ final class CharacterListViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(provider: @escaping CharactersProvider) {
+    init(provider: @escaping CharactersProvider = Provider.marvelCharactersList) {
         self.provider = provider
     }
     

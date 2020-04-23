@@ -9,21 +9,22 @@
 import Nuke
 import UIKit
 
-enum UI {
-    static let imageHeight: CGFloat = 120.0
-    static let imageSize = CGSize(width: UI.imageHeight, height: UI.imageHeight)
-    static let margin: CGFloat = 8.0
-    static let estimatedCellHeight = UI.imageHeight + (2 * UI.margin)
-    static let insets = NSDirectionalEdgeInsets(
-        top: UI.margin,
-        leading: UI.margin,
-        bottom: UI.margin,
-        trailing: UI.margin
-    )
-    static let horizontalSpacing: CGFloat = 16.0
-}
-
 final class MarvelCharacterCell: UITableViewCell {
+    enum UI {
+        static let estimatedCellHeight = UI.imageHeight + (2 * UI.margin)
+        
+        fileprivate static let imageHeight: CGFloat = 120.0
+        fileprivate static let imageSize = CGSize(width: UI.imageHeight, height: UI.imageHeight)
+        fileprivate static let margin: CGFloat = 8.0
+        fileprivate static let insets = NSDirectionalEdgeInsets(
+            top: UI.margin,
+            leading: UI.margin,
+            bottom: UI.margin,
+            trailing: UI.margin
+        )
+        fileprivate static let horizontalSpacing: CGFloat = 16.0
+    }
+    
     static let reuseIdentifier = String(describing: self)
     
     private let characterImageView = UIImageView()

@@ -120,7 +120,8 @@ enum Provider {
     }
     
     private static func hash(timeStamp: String) -> String {
-        Insecure.MD5.hash(data: Data((timeStamp + Constants.privateKey + Constants.publicKey).utf8))
+        Insecure.MD5
+            .hash(data: Data((timeStamp + Constants.privateKey + Constants.publicKey).utf8))
             .reduce(into: "") { $0 += String(format: "%02hhx", $1) }
     }
 }
