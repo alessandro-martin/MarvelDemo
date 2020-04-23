@@ -28,6 +28,7 @@
 		BFB721D724507C1F00758333 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = BFB721D624507C1F00758333 /* Nuke */; };
 		BFB721D92450893700758333 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721D82450893700758333 /* CharacterDetailViewController.swift */; };
 		BFB721DB2450931300758333 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */; };
+		BFDF9C0C2451F05B00E93F6C /* CharacterListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF9C0B2451F05B00E93F6C /* CharacterListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		BFB721D324507A3A00758333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFB721D82450893700758333 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		BFDF9C0B2451F05B00E93F6C /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				BF6633DC244F2B5E00F4D3E3 /* Utility */,
 				BF6633D7244F220F00F4D3E3 /* Fixtures */,
+				BFDF9C0B2451F05B00E93F6C /* CharacterListViewModelTests.swift */,
 				BF6633B5244F1E8200F4D3E3 /* ModelsTests.swift */,
 				BF6633B7244F1E8200F4D3E3 /* Info.plist */,
 			);
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6633DE244F2B6D00F4D3E3 /* Utilities.swift in Sources */,
+				BFDF9C0C2451F05B00E93F6C /* CharacterListViewModelTests.swift in Sources */,
 				BF6633B6244F1E8200F4D3E3 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
