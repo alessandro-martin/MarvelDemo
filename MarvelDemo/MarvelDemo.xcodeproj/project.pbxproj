@@ -69,6 +69,7 @@
 		BFB721DA2450931300758333 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		BFDF9C0B2451F05B00E93F6C /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
 		BFDF9C0D2451F36400E93F6C /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
+		BFDF9C0F2451F4FE00E93F6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 		BF663392244F1E8000F4D3E3 = {
 			isa = PBXGroup;
 			children = (
+				BFDF9C0F2451F4FE00E93F6C /* README.md */,
 				BF66339D244F1E8000F4D3E3 /* MarvelDemo */,
 				BF6633B4244F1E8200F4D3E3 /* MarvelDemoTests */,
 				BF66339C244F1E8000F4D3E3 /* Products */,
