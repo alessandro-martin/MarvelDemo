@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter?, Never>
+typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter, Error>
 
 final class CharacterViewModel {
     struct State: Equatable {
@@ -96,7 +96,9 @@ final class CharacterViewModel {
     func fetchCharacterInfo() {
         state.status = .loading
         provider(characterId)
-            .sink { [weak self] character in
+            .sink(receiveCompletion: { completion in
+                print("--->", completion)
+            }) { [weak self] character in
                 guard let self = self else { return }
                 
                 self.state = State(

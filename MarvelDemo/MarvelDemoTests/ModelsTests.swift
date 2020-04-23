@@ -14,6 +14,7 @@ final class ModelsTests: XCTestCase {
         let sut = Utilities.responseFromJSON
         
         XCTAssertEqual(sut.code, 200)
+        XCTAssertEqual(sut.status, "Ok")
         XCTAssertEqual(sut.data?.count, 20)
         XCTAssertEqual(sut.data?.limit, 20)
         XCTAssertEqual(sut.data?.offset, 0)

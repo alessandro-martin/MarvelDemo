@@ -10,25 +10,50 @@ import Combine
 import CryptoKit
 import Foundation
 
+enum AppError: Error {
+    case characterNotFound
+    case networkError
+    case serverError(code: Int, message: String)
+}
+
 enum Provider {
-    static func marvelCharactersList(offset: Int) -> AnyPublisher<CharacterDataContainer?, Never> {
-        URLSession.shared.dataTaskPublisher(for: Provider.charactersListUrl(offset: offset))
-            .map(\.data)
-            .decode(type: Response.self, decoder: JSONDecoder())
-            .replaceError(with: Response(code: nil, data: nil))
-            .map(\.data)
+    static func marvelCharactersList(offset: Int) -> AnyPublisher<CharacterDataContainer, Error> {
+        Self.characterDataContainer(url: Provider.charactersListUrl(offset: offset))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
-    static func characterDetails(characterId: Int) -> AnyPublisher<MarvelCharacter?, Never> {
-        URLSession.shared.dataTaskPublisher(for: Provider.characterDetailsUrl(characterId: characterId))
-            .map(\.data)
-            .decode(type: Response.self, decoder: JSONDecoder())
-            .replaceError(with: Response(code: nil, data: nil))
-            .map(\.data?.results?.first)
+    static func characterDetails(characterId: Int) -> AnyPublisher<MarvelCharacter, Error> {
+        Self.characterDataContainer(url: Provider.characterDetailsUrl(characterId: characterId))
+            .tryMap { container in
+                guard let character = container.results?.first else { throw AppError.characterNotFound }
+                
+                return character
+            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+    
+    private static func characterDataContainer(url: URL) -> AnyPublisher<CharacterDataContainer, Error> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { data, urlResponse  in
+                if let urlResponse = urlResponse as? HTTPURLResponse,
+                    urlResponse.statusCode != 200 {
+                    throw AppError.networkError
+                } else if let response = try? JSONDecoder().decode(Response.self, from: data) {
+                    if let characterDataContainer = response.data {
+                        return characterDataContainer
+                    } else if let code = response.code,
+                        let status = response.status {
+                        throw AppError.serverError(code: code, message: status)
+                    } else {
+                        throw AppError.networkError
+                    }
+                } else {
+                    throw AppError.networkError
+                }
+        }
+        .eraseToAnyPublisher()
     }
     
     private static func charactersListUrl(offset: Int) -> URL {

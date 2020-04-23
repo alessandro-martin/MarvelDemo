@@ -8,5 +8,6 @@
 
 struct Response: Decodable {
 	let code: Int?
+    let status: String?
 	let data: CharacterDataContainer?
 }

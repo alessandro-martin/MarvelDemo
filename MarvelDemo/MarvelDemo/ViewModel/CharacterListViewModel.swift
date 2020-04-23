@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-typealias CharactersProvider = (Int) -> AnyPublisher<CharacterDataContainer?, Never>
+typealias CharactersProvider = (Int) -> AnyPublisher<CharacterDataContainer, Error>
 
 final class CharacterListViewModel {
     struct State: Equatable {
@@ -70,14 +70,16 @@ final class CharacterListViewModel {
     private func fetchMarvelCharacters() {
         state.status = .loading
         provider(targetOffset)
-            .sink { [weak self] characterData in
+            .sink(receiveCompletion: { completion in
+                print("---> ", completion)
+            }) { [weak self] characterData in
                 guard let self = self else { return }
                 
                 self.targetOffset += Constants.pageSize
-                self.totalCharactersCount = characterData?.total
+                self.totalCharactersCount = characterData.total
 
                 self.state = State(
-                    marvelCharacters: self.state.marvelCharacters + (characterData?.results ?? []),
+                    marvelCharacters: self.state.marvelCharacters + (characterData.results ?? []),
                     status: .withData
                 )
         }
