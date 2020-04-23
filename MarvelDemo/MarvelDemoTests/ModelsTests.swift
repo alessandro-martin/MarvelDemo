@@ -10,7 +10,6 @@ import XCTest
 @testable import MarvelDemo
 
 final class ModelsTests: XCTestCase {
-
     func testResponseIsWellFormed() {
         let sut = Utilities.responseFromJSON
         
@@ -32,6 +31,6 @@ final class ModelsTests: XCTestCase {
         XCTAssertEqual(sut.events?.available, 1)
         XCTAssertEqual(sut.series?.available, 3)
         XCTAssertEqual(sut.stories?.available, 21)
-        XCTAssertEqual(sut.thumbnail?.url?.absoluteString, "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg")
+        XCTAssertEqual(sut.thumbnail?.url?.absoluteString, "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg")
     }
 }

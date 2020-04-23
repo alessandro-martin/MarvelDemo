@@ -12,7 +12,7 @@
 		BF6633A3244F1E8000F4D3E3 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633A2244F1E8000F4D3E3 /* CharacterListViewController.swift */; };
 		BF6633A8244F1E8200F4D3E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6633A7244F1E8200F4D3E3 /* Assets.xcassets */; };
 		BF6633AB244F1E8200F4D3E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6633A9244F1E8200F4D3E3 /* LaunchScreen.storyboard */; };
-		BF6633B6244F1E8200F4D3E3 /* MarvelDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633B5244F1E8200F4D3E3 /* MarvelDemoTests.swift */; };
+		BF6633B6244F1E8200F4D3E3 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633B5244F1E8200F4D3E3 /* ModelsTests.swift */; };
 		BF6633CD244F212B00F4D3E3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633C3244F212B00F4D3E3 /* Response.swift */; };
 		BF6633CE244F212B00F4D3E3 /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633C4244F212B00F4D3E3 /* MarvelCharacter.swift */; };
 		BF6633D1244F212B00F4D3E3 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6633C7244F212B00F4D3E3 /* Thumbnail.swift */; };
@@ -49,7 +49,7 @@
 		BF6633AA244F1E8200F4D3E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF6633AC244F1E8200F4D3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6633B1244F1E8200F4D3E3 /* MarvelDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF6633B5244F1E8200F4D3E3 /* MarvelDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDemoTests.swift; sourceTree = "<group>"; };
+		BF6633B5244F1E8200F4D3E3 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		BF6633B7244F1E8200F4D3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6633C3244F212B00F4D3E3 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BF6633C4244F212B00F4D3E3 /* MarvelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			children = (
 				BF6633DC244F2B5E00F4D3E3 /* Utility */,
 				BF6633D7244F220F00F4D3E3 /* Fixtures */,
-				BF6633B5244F1E8200F4D3E3 /* MarvelDemoTests.swift */,
+				BF6633B5244F1E8200F4D3E3 /* ModelsTests.swift */,
 				BF6633B7244F1E8200F4D3E3 /* Info.plist */,
 			);
 			path = MarvelDemoTests;
@@ -326,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6633DE244F2B6D00F4D3E3 /* Utilities.swift in Sources */,
-				BF6633B6244F1E8200F4D3E3 /* MarvelDemoTests.swift in Sources */,
+				BF6633B6244F1E8200F4D3E3 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
