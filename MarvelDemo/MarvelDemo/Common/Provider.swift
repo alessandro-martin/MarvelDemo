@@ -12,29 +12,50 @@ import Foundation
 
 enum AppError: Error {
     case characterNotFound
+    case generic(Error)
     case networkError
     case serverError(code: Int, message: String)
+    
+    var message: String {
+        switch self {
+        case .characterNotFound:
+            return "Character not Found"
+        case let .generic(error):
+            return error.localizedDescription
+        case .networkError:
+            return "Network Error"
+        case let .serverError(code, message):
+            return "Error \(code): \(message)"
+        }
+    }
 }
 
 enum Provider {
-    static func marvelCharactersList(offset: Int) -> AnyPublisher<CharacterDataContainer, Error> {
+    static func marvelCharactersList(offset: Int) -> AnyPublisher<CharacterDataContainer, AppError> {
         Self.characterDataContainer(url: Provider.charactersListUrl(offset: offset))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
-    static func characterDetails(characterId: Int) -> AnyPublisher<MarvelCharacter, Error> {
+    static func characterDetails(characterId: Int) -> AnyPublisher<MarvelCharacter, AppError> {
         Self.characterDataContainer(url: Provider.characterDetailsUrl(characterId: characterId))
             .tryMap { container in
                 guard let character = container.results?.first else { throw AppError.characterNotFound }
                 
                 return character
             }
+            .mapError { error in
+                if let error = error as? AppError {
+                    return error
+                } else {
+                    return .generic(error)
+                }
+            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
-    private static func characterDataContainer(url: URL) -> AnyPublisher<CharacterDataContainer, Error> {
+    private static func characterDataContainer(url: URL) -> AnyPublisher<CharacterDataContainer, AppError> {
         URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { data, urlResponse  in
                 if let urlResponse = urlResponse as? HTTPURLResponse,
@@ -52,6 +73,13 @@ enum Provider {
                 } else {
                     throw AppError.networkError
                 }
+        }
+        .mapError { error in
+            if let error = error as? AppError {
+                return error
+            } else {
+                return .generic(error)
+            }
         }
         .eraseToAnyPublisher()
     }

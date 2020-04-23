@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-typealias CharactersProvider = (Int) -> AnyPublisher<CharacterDataContainer, Error>
+typealias CharactersProvider = (Int) -> AnyPublisher<CharacterDataContainer, AppError>
 
 final class CharacterListViewModel {
     struct State: Equatable {

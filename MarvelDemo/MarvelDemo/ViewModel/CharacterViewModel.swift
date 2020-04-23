@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter, Error>
+typealias CharacterDetailsProvider = (Int) -> AnyPublisher<MarvelCharacter, AppError>
 
 final class CharacterViewModel {
     struct State: Equatable {
