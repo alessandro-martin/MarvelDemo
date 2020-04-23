@@ -11,11 +11,12 @@ import CryptoKit
 import Foundation
 
 enum Provider {
-    static func marvelCharactersList(offset: Int) -> AnyPublisher<Response, Never> {
+    static func marvelCharactersList(offset: Int) -> AnyPublisher<CharacterDataContainer?, Never> {
         URLSession.shared.dataTaskPublisher(for: Provider.charactersListUrl(offset: offset))
             .map(\.data)
             .decode(type: Response.self, decoder: JSONDecoder())
             .replaceError(with: Response(code: nil, data: nil))
+            .map(\.data)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
